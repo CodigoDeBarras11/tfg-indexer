@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from typing import List
+
 from pydantic import BaseModel, ConfigDict
 
 
@@ -9,5 +11,7 @@ class TokensValue(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
-    metadata: str
+    current_cids: List[str]
     owner: str
+    previous_info: List[str]
+    price: str
