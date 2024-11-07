@@ -1,5 +1,5 @@
 spec_version: 3.0
-package: indexer_v1
+package: indexer_v2
 
 datasources:
   tzkt:
@@ -9,11 +9,11 @@ datasources:
 contracts:
   tzsvl:
     kind: tezos
-    address: KT1BqeNb2fzo5MfaTwafUog4chdmAC5MmyFT
+    address: KT1BpFo1AURR5ngtjrCvKcmkKa4ky6Bs2hmw
     typename: tzsvl
 
 indexes:
-  tzsvl_holders:
+  tzsvl_index:
     kind: tezos.big_maps
     datasources:
       - tzkt
