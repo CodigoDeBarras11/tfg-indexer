@@ -22,10 +22,16 @@ async def on_mint(
     ctx.logger.info(f"Previous info:{previous_info}")
     ctx.logger.info(f"Price:{price}")
 
-    await models.Holder.update_or_create(
-        id=id, 
-        address=owner_address,
-        current_cids=current_cids,
-        previous_info=previous_info,
-        price=price
-    )
+
+    holder = await models.Holder.get_or_none(id=id)
+    if holder is None:
+        await models.Holder.create(
+            id=id, 
+            address=owner_address,
+            current_cids=current_cids,
+            previous_info=previous_info,
+            price=price
+        )
+    else:
+        holder.current_cids = current_cids
+        await holder.save()
