@@ -1,5 +1,5 @@
 spec_version: 3.0
-package: indexer_v2
+package: indexer_v3
 
 datasources:
   tzkt:
@@ -7,18 +7,18 @@ datasources:
     url: https://api.ghostnet.tzkt.io
 
 contracts:
-  tzsvl:
+  tz_svl:
     kind: tezos
-    address: KT1BpFo1AURR5ngtjrCvKcmkKa4ky6Bs2hmw
-    typename: tzsvl
+    address: KT1VLKA2CFBMMXLbf3c68ViQw3M5Zr49xwA6
+    typename: tz_svl
 
 indexes:
-  tzsvl_index:
+  tz_svl_index:
     kind: tezos.big_maps
     datasources:
       - tzkt
     handlers:
-      - callback: on_mint
-        contract: tzsvl
+      - callback: on_update
+        contract: tz_svl
         path: tokens
     skip_history: never

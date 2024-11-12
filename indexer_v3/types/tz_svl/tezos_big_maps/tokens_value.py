@@ -7,11 +7,20 @@ from typing import List
 from pydantic import BaseModel, ConfigDict
 
 
+class PreviousInfoItem(BaseModel):
+    model_config = ConfigDict(
+        extra='forbid',
+    )
+    address: str
+    list: List[str]
+
+
 class TokensValue(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
     current_cids: List[str]
     owner: str
-    previous_info: List[str]
+    previous_info: List[PreviousInfoItem]
     price: str
+    request: str
