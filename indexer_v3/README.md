@@ -1,4 +1,4 @@
-# indexer_v2
+# indexer_v3
 
 A blockchain indexer built with DipDup
 
