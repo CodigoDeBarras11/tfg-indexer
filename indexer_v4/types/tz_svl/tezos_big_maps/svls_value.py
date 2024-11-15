@@ -15,7 +15,7 @@ class PreviousInfoItem(BaseModel):
     list: List[str]
 
 
-class TokensValue(BaseModel):
+class SvlsValue(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
