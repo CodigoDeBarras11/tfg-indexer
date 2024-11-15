@@ -5,5 +5,5 @@ from __future__ import annotations
 from pydantic import RootModel
 
 
-class TokensKey(RootModel[str]):
+class SvlsKey(RootModel[str]):
     root: str

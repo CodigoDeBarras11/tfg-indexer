@@ -3,7 +3,7 @@ MAKEFLAGS += --no-print-directory
 ##
 ##  🚧 DipDup developer tools
 ##
-PACKAGE=indexer_v3
+PACKAGE=indexer_v4
 TAG=latest
 COMPOSE=deploy/compose.yaml
 
