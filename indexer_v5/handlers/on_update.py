@@ -43,5 +43,9 @@ async def on_update(
             accept_request=acceptRequest
         )
     else:
+        holder.address = owner_address
         holder.current_cids = current_cids
+        holder.previous_info = p_i
+        holder.request = request
+        holder.accept_request = acceptRequest
         await holder.save()
