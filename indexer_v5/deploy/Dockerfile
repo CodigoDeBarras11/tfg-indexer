@@ -5,5 +5,5 @@ FROM dipdup/dipdup:8
 # COPY --chown=dipdup pyproject.toml README.md .
 # RUN pip install .
 
-COPY --chown=dipdup . indexer_v4
-WORKDIR indexer_v4
+COPY --chown=dipdup . indexer_v5
+WORKDIR indexer_v5

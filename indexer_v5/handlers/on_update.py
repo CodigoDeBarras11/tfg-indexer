@@ -1,9 +1,8 @@
 from dipdup.context import HandlerContext
 from dipdup.models.tezos import TezosBigMapDiff
-from indexer_v4 import models as models
-from indexer_v4.types.tz_svl.tezos_big_maps.svls_key import SvlsKey
-from indexer_v4.types.tz_svl.tezos_big_maps.svls_value import SvlsValue
-
+from indexer_v5 import models as models
+from indexer_v5.types.tz_svl.tezos_big_maps.svls_key import SvlsKey
+from indexer_v5.types.tz_svl.tezos_big_maps.svls_value import SvlsValue
 
 async def on_update(
     ctx: HandlerContext,
@@ -23,13 +22,14 @@ async def on_update(
                     })
     price = svls.value.price
     request = svls.value.request
+    acceptRequest = svls.value.acceptRequest
     ctx.logger.info(f"id:{id}")
     ctx.logger.info(f"Owner address:{owner_address}")
     ctx.logger.info(f"Current CIDs:{current_cids}")
     ctx.logger.info(f"Previous info:{p_i}")
     ctx.logger.info(f"Price:{price}")
     ctx.logger.info(f"Request:{request}")
-
+    ctx.logger.info(f"Accepted request:{acceptRequest}")
 
     holder = await models.Holder.get_or_none(id=id)
     if holder is None:
@@ -39,7 +39,8 @@ async def on_update(
             current_cids=current_cids,
             previous_info=p_i,
             price=price,
-            request=request
+            request=request,
+            accept_request=acceptRequest
         )
     else:
         holder.current_cids = current_cids
