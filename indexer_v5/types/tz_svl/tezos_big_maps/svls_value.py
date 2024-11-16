@@ -19,6 +19,7 @@ class SvlsValue(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
+    acceptRequest: bool
     current_cids: List[str]
     owner: str
     previous_info: List[PreviousInfoItem]
