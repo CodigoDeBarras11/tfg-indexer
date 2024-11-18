@@ -1,8 +1,8 @@
 from dipdup.context import HandlerContext
 from dipdup.models.tezos import TezosBigMapDiff
-from indexer_v5 import models as models
-from indexer_v5.types.tz_svl.tezos_big_maps.svls_key import SvlsKey
-from indexer_v5.types.tz_svl.tezos_big_maps.svls_value import SvlsValue
+from indexer_v6 import models as models
+from indexer_v6.types.tz_svl.tezos_big_maps.svls_key import SvlsKey
+from indexer_v6.types.tz_svl.tezos_big_maps.svls_value import SvlsValue
 
 async def on_update(
     ctx: HandlerContext,
