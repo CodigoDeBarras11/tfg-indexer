@@ -7,7 +7,7 @@ from typing import List
 from pydantic import BaseModel, ConfigDict
 
 
-class PreviousInfoItem(BaseModel):
+class OwnersInfoItem(BaseModel):
     model_config = ConfigDict(
         extra='forbid',
     )
@@ -20,8 +20,7 @@ class SvlsValue(BaseModel):
         extra='forbid',
     )
     acceptRequest: bool
-    current_cids: List[str]
     owner: str
-    previous_info: List[PreviousInfoItem]
+    owners_info: List[OwnersInfoItem]
     price: str
     request: str
