@@ -17,7 +17,7 @@ async def on_update(
     o_i = []
     for o in owners_info:
         ctx.logger.info(f"oooooooooo:{o}")
-        p_i.append({'address': o.address, 'cids': o.list})
+        o_i.append({'address': o.address, 'cids': o.list})
     price = svls.value.price
     request = svls.value.request
     acceptRequest = svls.value.acceptRequest
