@@ -2,7 +2,7 @@
 *
 
 # Add metadata and build files
-!indexer_v6
+!indexer_v7
 !pyproject.toml
 !*.lock
 !README.md

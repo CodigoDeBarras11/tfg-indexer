@@ -3,7 +3,7 @@
 !*/
 
 # Add metadata and build files
-!indexer_v6
+!indexer_v7
 !.gitignore
 !.dockerignore
 !py.typed
