@@ -6,5 +6,6 @@ class Holder(Model):
     address = fields.TextField()
     request = fields.TextField()
     accept_request = fields.BooleanField()
-    owners_info = fields.JSONField()
+    prev_owners_info = fields.JSONField()
+    curr_owner_info = fields.JSONField()
     price = fields.CharField(max_length=100)
