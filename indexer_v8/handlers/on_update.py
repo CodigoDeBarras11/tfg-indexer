@@ -34,7 +34,7 @@ async def on_update(
             id=id, 
             address=owner_address,
             prev_owners_info=p_i,
-            current_owner_info=curr_owner_info,
+            curr_owner_info=curr_owner_info,
             price=price,
             request=request,
             accept_request=acceptRequest
@@ -42,7 +42,7 @@ async def on_update(
     else:
         holder.address = owner_address
         holder.prev_owners_info = p_i
-        holde.curr_owner_info = curr_owner_info
+        holder.curr_owner_info = curr_owner_info
         holder.request = request
         holder.accept_request = acceptRequest
         await holder.save()
