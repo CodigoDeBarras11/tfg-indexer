@@ -18,16 +18,17 @@ async def on_update(
     for o in prev_owners_info:
         p_i.append({'address': o.address, 'cids': o.list})
     price = svls.value.price
-    request = svls.value.request
+    request = svls.value.request                                                                    
     acceptRequest = svls.value.acceptRequest
-    ctx.logger.info(f"svl_id:{svl_id}")
-    ctx.logger.info(f"Owner address:{owner_address}")
-    ctx.logger.info(f"Previous owners info:{p_i}")
-    ctx.logger.info(f"Current owner info:{curr_owner_info}")
-    ctx.logger.info(f"Price:{price}")
-    ctx.logger.info(f"Request:{request}")
-    ctx.logger.info(f"Accepted request:{acceptRequest}")
-    holder = await models.Holder.get_or_none(id=id)
+    #ctx.logger.info(f"svl_id:{svl_id}")
+    #ctx.logger.info(f"Owner address:{owner_address}")
+    #ctx.logger.info(f"Previous owners info:{p_i}")
+    #ctx.logger.info(f"Current owner info:{curr_owner_info}")
+    #ctx.logger.info(f"Price:{price}")
+    #ctx.logger.info(f"Request:{request}")
+    #ctx.logger.info(f"Accepted request:{acceptRequest}")
+    ctx.logger.info(svl_id)
+    holder = await models.Holder.get_or_none(id=svl_id)
     if holder is None:
         await models.Holder.create(
             id=svl_id, 
