@@ -1,9 +1,8 @@
 from dipdup.context import HandlerContext
 from dipdup.models.tezos import TezosBigMapDiff
-from indexer_v9 import models as models
-from indexer_v9.types.tz_svl.tezos_big_maps.svls_key import SvlsKey
-from indexer_v9.types.tz_svl.tezos_big_maps.svls_value import SvlsValue
-
+from indexer_v10 import models as models
+from indexer_v10.types.tz_svl.tezos_big_maps.svls_key import SvlsKey
+from indexer_v10.types.tz_svl.tezos_big_maps.svls_value import SvlsValue
 
 async def on_update(
     ctx: HandlerContext,
@@ -12,6 +11,7 @@ async def on_update(
     if not svls.key: return
     svl_id = svls.key.root
     owner_address = svls.value.owner
+    owner_vin = svls.value.VIN
     prev_owners_info = svls.value.prev_owners_info
     curr_owner_info = svls.value.curr_owner_info
     p_i = []
@@ -21,6 +21,7 @@ async def on_update(
     request = svls.value.request                                                                    
     acceptRequest = svls.value.acceptRequest
     #ctx.logger.info(f"svl_id:{svl_id}")
+    #ctx.logger.info(f"Owner VIN:{owner_vin}")
     #ctx.logger.info(f"Owner address:{owner_address}")
     #ctx.logger.info(f"Previous owners info:{p_i}")
     #ctx.logger.info(f"Current owner info:{curr_owner_info}")
@@ -33,6 +34,7 @@ async def on_update(
         await models.Holder.create(
             id=svl_id, 
             address=owner_address,
+            vin=owner_vin,
             prev_owners_info=p_i,
             curr_owner_info=curr_owner_info,
             price=price,
@@ -41,6 +43,7 @@ async def on_update(
         )
     else:
         holder.address = owner_address
+        holder.vin = owner_vin
         holder.prev_owners_info = p_i
         holder.curr_owner_info = curr_owner_info
         holder.request = request
