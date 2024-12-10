@@ -1,4 +1,4 @@
-name: indexer_v10
+name: indexer_v11
 
 services:
   dipdup:
@@ -32,7 +32,6 @@ services:
       timeout: 5s
       retries: 5
 
-  
 
 volumes:
   db:

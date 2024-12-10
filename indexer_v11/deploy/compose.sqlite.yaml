@@ -1,4 +1,4 @@
-name: indexer_v10
+name: indexer_v11
 
 services:
   dipdup:
@@ -12,7 +12,7 @@ services:
       - 46339
       - 9000
     volumes:
-      - sqlite:${SQLITE_PATH:-/tmp/indexer_v10.sqlite}
+      - sqlite:${SQLITE_PATH:-/tmp/indexer_v11.sqlite}
 
 volumes:
   sqlite:
