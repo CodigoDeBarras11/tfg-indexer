@@ -21,9 +21,12 @@ class SvlsValue(BaseModel):
     )
     VIN: str
     acceptRequest: bool
+    brand: str
     curr_owner_info: List[str]
     first_owner: bool
+    model: str
     owner: str
     prev_owners_info: List[PrevOwnersInfoItem]
     price: str
     request: str
+    year: str
