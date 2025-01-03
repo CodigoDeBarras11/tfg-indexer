@@ -9,7 +9,7 @@ datasources:
 contracts:
   tz_svl:
     kind: tezos
-    address: KT1Sd9bhoxN4yXS8KURwpqiLwzyBBUd5rotM
+    address: KT1E8PfnXEtbSDQuRHR6n7C5DwR7hEGYrKCx
     typename: tz_svl
 
 indexes:
